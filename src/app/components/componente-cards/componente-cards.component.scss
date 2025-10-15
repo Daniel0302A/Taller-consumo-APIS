@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;500&display=swap');
+
+/* FONDO GENERAL */
+body {
+  margin: 0;
+  padding: 60px;
+  background: radial-gradient(circle at top left, #1b0e07 0%, #0a0402 80%);
+  background-attachment: fixed;
+  color: #f2e8c9;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* CONTENEDOR DE LAS TARJETAS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 40px;
+  justify-items: center;
+  padding: 20px;
+}
+
+/* TARJETA INDIVIDUAL */
+.card {
+  position: relative;
+  background: linear-gradient(145deg, rgba(27,15,10,0.95), rgba(10,6,3,0.9));
+  border: 1px solid rgba(198, 152, 60, 0.5);
+  border-radius: 20px;
+  box-shadow: 0 4px 25px rgba(0,0,0,0.6);
+  padding: 30px;
+  max-width: 360px;
+  transition: all 0.4s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* EFECTO DE BRILLO DORADO */
+.card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 50%, rgba(255,215,100,0.15), transparent 70%);
+  transform: rotate(25deg);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* EFECTO DE ELEVACIÓN Y RESPLANDOR */
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 8px 40px rgba(198, 152, 60, 0.4);
+  border-color: #d4af37;
+}
+
+/* ID Y USERID */
+.id, .userId {
+  font-size: 0.85rem;
+  color: #caa85c;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+/* TÍTULO DEL POST (como nombre de licor) */
+.title {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  color: #f4d992;
+  margin: 12px 0;
+  border-bottom: 1px solid rgba(213,175,80,0.3);
+  padding-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+/* CUERPO DEL TEXTO */
+.body {
+  font-size: 0.95rem;
+  color: #e7dcc3;
+  line-height: 1.6;
+  margin-top: 10px;
+  letter-spacing: 0.3px;
+}
+
+/* ANIMACIÓN SUAVE DE ENTRADA */
+.card {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 0.8s ease forwards;
+}
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
